@@ -8,6 +8,6 @@ public class HelloRestController {
 
     @RequestMapping("/api/hello")
     public String getHello() {
-        return "Hello form butler server side!!! More fun!";
+        return "Hello form butler server side!";
     }
 }
