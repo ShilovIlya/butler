@@ -8,7 +8,7 @@ import java.util.List;
 public class MockHeroes {
     public static List<Hero> getHeroesList() {
         return Arrays.asList(
-                new Hero(21, "Mr. Nice!!"),
+                new Hero(21, "Mr. Nice"),
                 new Hero(22, "Narco"),
                 new Hero(23, "Bombasto"),
                 new Hero(24, "Celeritas"),
