@@ -13,13 +13,16 @@ import {AppRoutingModule} from './app-routing';
 
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import {InMemoryDataService} from "./service/data/in-memory-data.service";
+import { HeroSearchComponent } from './component/hero-search/hero-search.component';
+import {HeroSearchService} from "./service/search/hero-search.service";
 
 @NgModule({
   declarations: [
     AppComponent,
     HeroesComponent,
     HeroDetailComponent,
-    DashboardComponent
+    DashboardComponent,
+    HeroSearchComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,7 @@ import {InMemoryDataService} from "./service/data/in-memory-data.service";
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     AppRoutingModule
   ],
-  providers: [HeroService],
+  providers: [HeroService, HeroSearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
