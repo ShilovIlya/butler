@@ -28,7 +28,7 @@ import {HeroSearchService} from "./service/search/hero-search.service";
     BrowserModule,
     FormsModule,
     HttpModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService),
+    // InMemoryWebApiModule.forRoot(InMemoryDataService),
     AppRoutingModule
   ],
   providers: [HeroService, HeroSearchService],

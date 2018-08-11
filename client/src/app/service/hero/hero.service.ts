@@ -7,27 +7,31 @@ import {Hero} from '../../hero';
 
 @Injectable()
 export class HeroService {
-  private heroesUrl = "api/heroes";
+  private heroesUrl = "/api/hero";
   private headers = new Headers({'Content-Type': 'application/json'});
 
   constructor(private http: Http) {
   }
 
   getHeroes(): Promise<Hero[]> {
-    return this.http.get(this.heroesUrl)
+    const url = `${this.heroesUrl}/all`;
+    console.log(url);
+    return this.http.get(url)
       .toPromise()
-      .then(response => response.json().data as Hero[])
+      .then(response => {
+        console.log(response);
+        console.log(response.json().data);
+        response.json().data as Hero[]
+      })
       .catch(this.handleError);
   }
 
-  private handleError(error: any): Promise<any> {
-    console.log('Hero service error:', error);
-    return Promise.reject(error.message || error);
-  }
-
   getHero(id: number): Promise<Hero> {
-    return this.getHeroes()
-      .then(heroes => heroes.find(hero => hero.id === id));
+    const url = `${this.heroesUrl}/${id}`;
+    return this.http.get(url)
+      .toPromise()
+      .then(response => response.json().data as Hero)
+      .catch(this.handleError);
   }
 
   update(hero: Hero): Promise<Hero> {
@@ -54,5 +58,10 @@ export class HeroService {
       .toPromise()
       .then(() => null)
       .catch(this.handleError);
+  }
+
+  private handleError(error: any): Promise<any> {
+    console.log('Hero service error:', error);
+    return Promise.reject(error.message || error);
   }
 }
