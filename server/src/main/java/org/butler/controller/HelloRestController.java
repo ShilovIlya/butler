@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import static org.butler.common.MockHeroes.getHeroPowers;
+
 @RestController
 @RequestMapping("/api/hero")
 @CrossOrigin(origins = {"http://localhost:4200"})
@@ -46,11 +48,12 @@ public class HelloRestController {
     }
 
     @PostMapping
-    public Hero createHero(@RequestBody String heroName) {
+    public Hero createHero(@RequestBody Hero heroNoId) {
         Optional<Integer> nextId = heroStorage.getAllHeroes().stream()
                 .map(hero -> hero.getId() + 1)
                 .max(Integer::compareTo);
-        Hero hero = new Hero(nextId.orElse(1), heroName);
+        Hero hero = new Hero(nextId.orElse(1), heroNoId.getName(), heroNoId.getPower(),
+                heroNoId.getAlterEgo());
         heroStorage.createHero(hero);
         return hero;
     }
@@ -58,5 +61,10 @@ public class HelloRestController {
     @DeleteMapping("/{id}")
     public void deleteHero(@PathVariable("id") int id) {
         heroStorage.deleteHero(id);
+    }
+
+    @GetMapping("/powers")
+    public List<String> getPowers() {
+        return getHeroPowers();
     }
 }

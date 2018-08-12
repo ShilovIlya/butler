@@ -10,6 +10,7 @@ import {HeroService} from '../../service/hero/hero.service';
 })
 export class HeroesComponent implements OnInit {
   selectedHero: Hero;
+  newHero: Hero;
   heroes: Hero[];
 
   constructor(private heroService: HeroService,
@@ -18,6 +19,7 @@ export class HeroesComponent implements OnInit {
 
   ngOnInit() {
     this.getHeroes();
+    this.setEmptyNewHero();
   }
 
   onSelect(hero: Hero): void {
@@ -32,12 +34,8 @@ export class HeroesComponent implements OnInit {
     this.router.navigate(['/detail', this.selectedHero.id]);
   }
 
-  add(name: String): void {
-    name = name.trim();
-    if (!name) {
-      return;
-    }
-    this.heroService.create(name)
+  createHero(inputHero: Hero): void {
+    this.heroService.create(inputHero)
       .then(hero => {
         this.heroes.push(hero);
         this.selectedHero = null;
@@ -53,5 +51,9 @@ export class HeroesComponent implements OnInit {
           this.selectedHero = null;
         }
       })
+  }
+
+  setEmptyNewHero(): void {
+    this.newHero = new Hero(0, "", "", "");
   }
 }

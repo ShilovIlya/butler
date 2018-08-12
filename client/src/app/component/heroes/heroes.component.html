@@ -15,9 +15,6 @@
   </h2>
   <button (click)="gotoDetail()">View Details</button>
 </div>
-<div>
-  <label>Hero name:</label> <input #heroName />
-  <button (click)="add(heroName.value); heroName.value=''">
-    Add
-  </button>
-</div>
+<app-hero-form [hero]="newHero"
+               (submitHeroRequest)="createHero($event)"
+               [btnSubmitText]="'Create hero'"></app-hero-form>

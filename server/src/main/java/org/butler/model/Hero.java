@@ -3,13 +3,17 @@ package org.butler.model;
 public class Hero {
     private int id;
     private String name;
+    private String power;
+    private String alterEgo;
 
     public Hero() {
     }
 
-    public Hero(int id, String name) {
+    public Hero(int id, String name, String power, String alterEgo) {
         this.id = id;
         this.name = name;
+        this.power = power;
+        this.alterEgo = alterEgo;
     }
 
     public int getId() {
@@ -26,6 +30,22 @@ public class Hero {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPower() {
+        return power;
+    }
+
+    public void setPower(String power) {
+        this.power = power;
+    }
+
+    public String getAlterEgo() {
+        return alterEgo;
+    }
+
+    public void setAlterEgo(String alterEgo) {
+        this.alterEgo = alterEgo;
     }
 
     @Override
@@ -48,6 +68,8 @@ public class Hero {
         return "Hero{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", power='" + power + '\'' +
+                ", alterEgo='" + alterEgo + '\'' +
                 '}';
     }
 }
