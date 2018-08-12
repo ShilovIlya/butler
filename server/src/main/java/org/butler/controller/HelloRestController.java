@@ -48,7 +48,7 @@ public class HelloRestController {
     @PostMapping
     public Hero createHero(@RequestBody String heroName) {
         Optional<Integer> nextId = heroStorage.getAllHeroes().stream()
-                .map(Hero::getId)
+                .map(hero -> hero.getId() + 1)
                 .max(Integer::compareTo);
         Hero hero = new Hero(nextId.orElse(1), heroName);
         heroStorage.createHero(hero);
