@@ -4,10 +4,11 @@ import {Headers, Http} from "@angular/http";
 import 'rxjs/add/operator/toPromise';
 
 import {Hero} from '../../hero';
+import {environment} from "../../../environments/environment";
 
 @Injectable()
 export class HeroService {
-  private heroesUrl = "http://localhost:8081/api/hero";
+  private heroesUrl = `${environment.apiUrl}/api/hero`;
   private headers = new Headers({'Content-Type': 'application/json'});
 
   constructor(private http: Http) {
@@ -15,7 +16,6 @@ export class HeroService {
 
   getHeroes(): Promise<Hero[]> {
     const url = `${this.heroesUrl}/all`;
-    console.log(url);
     return this.http.get(url)
       .toPromise()
       .then(response => response.json() as Hero[])
