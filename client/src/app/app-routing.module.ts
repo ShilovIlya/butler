@@ -1,8 +1,8 @@
-import {NgModule}             from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-import {DashboardComponent}   from './component/dashboard/dashboard.component';
-import {HeroesComponent}      from './component/heroes/heroes.component';
-import {HeroDetailComponent}  from './component/hero-detail/hero-detail.component';
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
+import { DashboardComponent } from "./hero-tour/dashboard/dashboard.component";
+import { HeroDetailComponent } from "./hero-tour/hero-detail/hero-detail.component";
+import { HeroesComponent } from "./hero-tour/heroes/heroes.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/dashboard', pathMatch: 'full'},

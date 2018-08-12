@@ -1,21 +1,17 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
-import {HttpModule} from '@angular/http';
+import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
+import { HttpModule } from "@angular/http";
+import { BrowserModule } from "@angular/platform-browser";
+import { AppRoutingModule } from "./app-routing.module";
 
-import {AppComponent} from './app.component';
-import {HeroesComponent} from './component/heroes/heroes.component';
-import {HeroDetailComponent} from './component/hero-detail/hero-detail.component';
-import {HeroService} from "./service/hero/hero.service";
-import {DashboardComponent} from './component/dashboard/dashboard.component';
-
-import {AppRoutingModule} from './app-routing';
-
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import {InMemoryDataService} from "./service/data/in-memory-data.service";
-import { HeroSearchComponent } from './component/hero-search/hero-search.component';
-import {HeroSearchService} from "./service/search/hero-search.service";
-import { HeroFormComponent } from './component/hero-form/hero-form.component';
+import { AppComponent } from "./app.component";
+import { DashboardComponent } from "./hero-tour/dashboard/dashboard.component";
+import { HeroDetailComponent } from "./hero-tour/hero-detail/hero-detail.component";
+import { HeroFormComponent } from "./hero-tour/hero-form/hero-form.component";
+import { HeroSearchComponent } from "./hero-tour/hero-search/hero-search.component";
+import { HeroSearchService } from "./hero-tour/hero-search/hero-search.service";
+import { HeroesComponent } from "./hero-tour/heroes/heroes.component";
+import { HeroService } from "./hero-tour/shared/hero.service";
 
 @NgModule({
   declarations: [

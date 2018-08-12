@@ -1,6 +1,7 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Hero} from "../../hero";
-import {HeroService} from "../../service/hero/hero.service";
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+
+import { Hero } from "../shared/hero";
+import { HeroService } from "../shared/hero.service";
 
 @Component({
   selector: 'app-hero-form',
@@ -24,7 +25,7 @@ export class HeroFormComponent implements OnInit {
     this.heroService.getPowers().then(powers => this.powers = powers);
   }
 
-  onSubmit() :void {
+  onSubmit(): void {
     this.submitHeroRequest.emit(this.hero);
   }
 }

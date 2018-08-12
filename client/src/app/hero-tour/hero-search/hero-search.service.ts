@@ -1,11 +1,11 @@
-import {Injectable} from '@angular/core';
-import {Http} from '@angular/http';
+import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
 
-import {Observable} from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
-import {Hero} from '../../hero';
-import {environment} from "../../../environments/environment";
+import { Hero } from '../shared/hero';
+import { environment } from "../../../environments/environment";
 
 @Injectable()
 export class HeroSearchService {
