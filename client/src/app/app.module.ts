@@ -12,6 +12,10 @@ import { HeroSearchComponent } from "./hero-tour/hero-search/hero-search.compone
 import { HeroSearchService } from "./hero-tour/hero-search/hero-search.service";
 import { HeroesComponent } from "./hero-tour/heroes/heroes.component";
 import { HeroService } from "./hero-tour/shared/hero.service";
+import { GraphComponent } from './d3-tour/graph/graph.component';
+import { D3Service } from "./d3-tour/d3.service";
+import { NodeVisualComponent } from './d3-tour/node-visual/node-visual.component';
+import { LinkVisualComponent } from './d3-tour/link-visual/link-visual.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,10 @@ import { HeroService } from "./hero-tour/shared/hero.service";
     HeroDetailComponent,
     DashboardComponent,
     HeroSearchComponent,
-    HeroFormComponent
+    HeroFormComponent,
+    GraphComponent,
+    NodeVisualComponent,
+    LinkVisualComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +35,7 @@ import { HeroService } from "./hero-tour/shared/hero.service";
     HttpModule,
     AppRoutingModule
   ],
-  providers: [HeroService, HeroSearchService],
+  providers: [HeroService, HeroSearchService, D3Service],
   bootstrap: [AppComponent]
 })
 export class AppModule {
