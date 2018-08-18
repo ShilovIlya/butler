@@ -16,6 +16,7 @@ import { GraphComponent } from './d3-tour/graph/graph.component';
 import { D3Service } from "./d3-tour/d3.service";
 import { NodeVisualComponent } from './d3-tour/node-visual/node-visual.component';
 import { LinkVisualComponent } from './d3-tour/link-visual/link-visual.component';
+import { BasicGraphComponent } from './d3-tour/basic-graph/basic-graph.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { LinkVisualComponent } from './d3-tour/link-visual/link-visual.component
     HeroFormComponent,
     GraphComponent,
     NodeVisualComponent,
-    LinkVisualComponent
+    LinkVisualComponent,
+    BasicGraphComponent
   ],
   imports: [
     BrowserModule,

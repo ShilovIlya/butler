@@ -1,7 +1,7 @@
 import { EventEmitter } from "@angular/core";
-import { Node } from "./node";
-import { Link } from "./link";
+import { Link, Node } from "./";
 import * as d3 from "d3";
+
 const FORCES = {
   LINKS: 1 / 50,
   COLLISION: 1,
@@ -35,7 +35,10 @@ export class ForceDirectedGraph {
       throw new Error('simulation was not initialized yet');
     }
     this.simulation.force('links',
-      d3.forceLink(this.links).strength(FORCES.LINKS));
+      d3.forceLink(this.links)
+        .id(d => d['id'])
+        .strength(FORCES.LINKS)
+    );
   }
 
   initSimulation(options: { width: number, height: number }) {
@@ -45,11 +48,22 @@ export class ForceDirectedGraph {
     if (!this.simulation) {
       const ticker = this.ticker;
       this.simulation = d3.forceSimulation()
-        .force("charge", d3.forceManyBody().strength(FORCES.CHARGE));
+        .force('charge',
+          d3.forceManyBody()
+            .strength(d => FORCES.CHARGE * d['r'])
+        )
+        .force('collide',
+          d3.forceCollide()
+            .strength(FORCES.COLLISION)
+            .radius(d => d['r'] + 5).iterations(2)
+        );
+      this.simulation.on('tick', function () {
+        ticker.emit(this);
+      });
       this.initNodes();
       this.initLinks();
     }
-    this.simulation.force("centers", d3.forceCenter(options.width / 2, options.height / 2));
+    this.simulation.force('centers', d3.forceCenter(options.width / 2, options.height / 2));
     this.simulation.restart();
   }
 }

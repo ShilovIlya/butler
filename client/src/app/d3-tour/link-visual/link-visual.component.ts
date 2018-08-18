@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Link } from "../link";
+import { Link } from "../model/link";
 
 @Component({
-  selector: 'app-link-visual',
+  selector: '[linkVisual]',
   templateUrl: './link-visual.component.html',
   styleUrls: ['./link-visual.component.css']
 })

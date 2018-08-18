@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Node } from "../node";
+import { Node } from "../model/node";
 
 @Component({
-  selector: 'app-node-visual',
+  selector: '[nodeVisual]',
   templateUrl: './node-visual.component.html',
   styleUrls: ['./node-visual.component.css']
 })

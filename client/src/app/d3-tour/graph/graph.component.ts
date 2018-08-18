@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ForceDirectedGraph } from "../force-directed-graph";
+import { ForceDirectedGraph } from "../model/force-directed-graph";
 import { D3Service } from "../d3.service";
-import { Node } from "../node";
-import { Link } from "../link";
+import { Node } from "../model/node";
+import { Link } from "../model/link";
 
 @Component({
   selector: 'app-graph',
@@ -26,7 +26,7 @@ export class GraphComponent implements OnInit {
     this.graph.initSimulation(this.options);
   }
 
-  private _options: { width: number, height: number } = {width: 800, height: 600};
+  private _options: { width: number, height: number } = {width: 1000, height: 800};
 
   get options() {
     return this._options = {
