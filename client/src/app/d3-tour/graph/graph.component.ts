@@ -13,11 +13,8 @@ import { Link } from "../model/link";
 export class GraphComponent implements OnInit {
   @Input('nodes') nodes: Node[];
   @Input('links') links: Link[];
-
-  @HostListener('window:resize', ['$event'])
-  onResize(event) {
-    this.graph.initSimulation(this.options);
-  }
+  @Input('width') width: number;
+  @Input('height') height: number;
 
   graph: ForceDirectedGraph;
 
@@ -36,12 +33,7 @@ export class GraphComponent implements OnInit {
     this.graph.initSimulation(this.options);
   }
 
-  private _options: { width: number, height: number } = {width: 1000, height: 800};
-
   get options() {
-    return this._options = {
-      width: window.innerWidth,
-      height: window.innerHeight
-    };
+    return {height: this.height, width: this.width};
   }
 }

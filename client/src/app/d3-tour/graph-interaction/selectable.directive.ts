@@ -4,16 +4,16 @@ import { D3Service } from "../d3.service";
 import { Node } from "../model/node";
 
 @Directive({
-  selector: '[draggableNode]'
+  selector: '[selectableNode]'
 })
-export class DraggableDirective {
-  @Input('draggableNode') node: Node;
-  @Input('draggableInGraph') graph: ForceDirectedGraph;
+export class SelectableDirective {
+  @Input('selectableNode') node: Node;
+  @Input('selectableInGraph') graph: ForceDirectedGraph;
 
   constructor(private d3Service: D3Service, private _element: ElementRef) {
   }
 
   ngOnInit() {
-    this.d3Service.applyDraggableBehaviour(this._element.nativeElement, this.node, this.graph);
+    this.d3Service.applySelectableBehaviour(this._element.nativeElement, this.node, this.graph);
   }
 }

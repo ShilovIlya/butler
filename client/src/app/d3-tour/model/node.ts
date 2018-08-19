@@ -10,11 +10,17 @@ export class Node implements d3.SimulationNodeDatum {
   fx?: number;
   fy?: number;
 
-  id: string;
+  id: number;
   linkCount: number = 0;
+  stroke: string = "white";
+  strokeWidth: number = 0.25;
+
+  getColor;
 
   constructor(id) {
     this.id = id;
+    this.resetColorFunction();
+    this.resetStroke();
   }
 
   normal = () => {
@@ -30,7 +36,24 @@ export class Node implements d3.SimulationNodeDatum {
   }
 
   get color() {
+    return this.getColor();
+  }
+
+  getColorBasic() {
     let index = Math.floor(GRAPH_CONFIG.SPECTRUM.length * this.normal());
     return GRAPH_CONFIG.SPECTRUM[index];
+  };
+
+  setColorFunction(func) {
+    this.getColor = func;
+  }
+
+  resetColorFunction() {
+    this.getColor = this.getColorBasic;
+  }
+
+  resetStroke() {
+    this.stroke = "white";
+    this.strokeWidth = 0.25;
   }
 }

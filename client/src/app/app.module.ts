@@ -19,6 +19,7 @@ import { LinkVisualComponent } from './d3-tour/link-visual/link-visual.component
 import { BasicGraphComponent } from './d3-tour/basic-graph/basic-graph.component';
 import { DraggableDirective } from "./d3-tour/graph-interaction/draggable.directive";
 import { ZoomableDirective } from "./d3-tour/graph-interaction/zoomable.directive";
+import { SelectableDirective } from "./d3-tour/graph-interaction/selectable.directive";
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ZoomableDirective } from "./d3-tour/graph-interaction/zoomable.directiv
     LinkVisualComponent,
     BasicGraphComponent,
     DraggableDirective,
-    ZoomableDirective
+    ZoomableDirective,
+    SelectableDirective
   ],
   imports: [
     BrowserModule,

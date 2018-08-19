@@ -20,8 +20,8 @@ export class BasicGraphComponent implements OnInit {
     for (let i = 1; i <= GRAPH_CONFIG.N; i++) {
       for (let m = 2; i * m <= GRAPH_CONFIG.N; m++) {
         this.nodes[i - 1].linkCount++;
-        this.nodes[i*m - 1].linkCount++;
-        this.links.push(new Link(i, i*m));
+        this.nodes[i * m - 1].linkCount++;
+        this.links.push(new Link(this.nodes[i - 1], this.nodes[i * m - 1]));
       }
     }
   }

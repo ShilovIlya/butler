@@ -1,7 +1,8 @@
-<svg #svg [attr.width]="_options.width" [attr.height]="_options.height">
+<svg #svg [attr.width]="width" [attr.height]="height">
   <g [zoomableOf]="svg">
     <g [linkVisual]="link" *ngFor="let link of links"></g>
     <g [nodeVisual]="node" *ngFor="let node of nodes"
-       [draggableNode]="node" [draggableInGraph]="graph"></g>
+       [draggableNode]="node" [draggableInGraph]="graph"
+       [selectableNode]="node" [selectableInGraph]="graph"></g>
   </g>
 </svg>
