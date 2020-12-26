@@ -1,7 +1,0 @@
-<div *ngIf="hero">
-  <h2>{{hero.name | uppercase}} Details</h2>
-  <app-hero-form [hero]="hero"
-                 (submitHeroRequest)="save($event)"
-                 [btnSubmitText]="'Save hero'"></app-hero-form>
-  <button (click)="goBack()">Back</button>
-</div>

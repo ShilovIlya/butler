@@ -1,9 +1,6 @@
 <h1>Butler project.</h1>
 
-It should help you in life.
+Test ideas for fun.
 
-<h2>Heroku:<h2>
-heroku login
-heroku war:deploy ./server/target/butler.war --app butler-wais
   
-<h2>https://butler-wais.herokuapp.com/graph<h2>
+<h2>https://butler-wais.herokuapp.com<h2>

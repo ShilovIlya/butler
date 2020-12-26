@@ -1,0 +1,27 @@
+{
+  "name": "butler",
+  "version": "1.0.0",
+  "description": "<h1>Butler project.</h1>",
+  "main": "index.js",
+  "engines": {
+    "node": "12.17.x"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShilovIlya/butler.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShilovIlya/butler/issues"
+  },
+  "homepage": "https://github.com/ShilovIlya/butler#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^3.0.4"
+  }
+}
